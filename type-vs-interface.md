@@ -2,39 +2,39 @@
 
 ## Introduction
 
-Both `type` aliases and `interface` declarations describe the shape of data, so developers often wonder which one to use. They overlap heavily, but they differ in capabilities that matter in real-world projects.
+Both `type` aliases and `interface` declarations describe the shape of data. Developers often wonder which one to use. They overlap heavily but differ in important ways. Choosing well improves readability and maintainability.
 
 ## Key Differences
 
-Interfaces support declaration merging. Declaring the same interface twice combines both declarations into one.
+Interfaces support declaration merging. Declaring the same interface twice combines both declarations. This helps when extending library types.
 
 ```typescript
 interface User { id: number }
 interface User { name: string }
 ```
 
-Type aliases cannot be merged, but they are more expressive. They can name unions, tuples, and primitives.
+Type aliases cannot merge, but they are more expressive. They can name unions, tuples and primitives. Declaring the same type alias twice causes an error.
 
 ```typescript
 type Status = "active" | "inactive";
-type Coordinate = [number, number];
+type Point = [number, number];
 ```
 
 ## Extending Types
 
-Interfaces extend one another with `extends`, while type aliases compose through intersections.
+Interfaces extend one another with `extends`. Type aliases compose through intersections. Both produce a new type containing every parent property.
 
 ```typescript
-interface Animal { name: string }
-interface Dog extends Animal { breed: string }
-
+interface Dog extends User { breed: string }
 type Admin = User & { role: string };
 ```
 
+Intersections can also combine several types at once.
+
 ## When to Choose Which
 
-Choose `interface` for object contracts, public APIs and classes that use `implements`, where extensibility matters. Choose `type` for unions, tuples and advanced constructs such as mapped or conditional types.
+Choose `interface` for object contracts and public APIs. It also suits classes that use `implements`. Choose `type` for unions and tuples. It also handles mapped and conditional types. Teams often pick one convention for consistency.
 
 ## Conclusion
 
-For plain object shapes the two are nearly interchangeable. A practical rule is to default to `interface` for extensible object contracts and switch to `type` whenever you need the flexibility only a type alias provides.
+For plain object shapes, the two are nearly interchangeable. Default to `interface` for extensible object contracts. Switch to `type` when you need its extra flexibility. Consistency across a codebase matters more than the choice itself.
