@@ -19,8 +19,6 @@ A collection of strongly typed TypeScript solutions covering core language featu
 - [Solutions](#solutions)
 - [Code Quality Standards](#code-quality-standards)
 - [Technical Blog Posts](#technical-blog-posts)
-- [Getting Started](#getting-started)
-- [Author](#author)
 
 ---
 
