@@ -6,7 +6,7 @@ Union types are powerful, but they come with a limitation: you can only access m
 
 ## Narrowing Primitives with `typeof`
 
-The `typeof` guard distinguishes primitives such as `string`, `number`, and `boolean`.
+The `typeof` guard distinguishes primitives such as `string`, `number` and `boolean`.
 
 ```typescript
 function formatId(id: string | number): string {
@@ -43,4 +43,4 @@ function move(vehicle: Car | Boat): void {
 
 ## Conclusion
 
-Type narrowing keeps your code both flexible and type-safe. Use `typeof` for primitives, `instanceof` for classes, and `in` for object shapes, and let the compiler eliminate an entire category of runtime errors before your code ever runs.
+Type narrowing keeps your code both flexible and type-safe. Use `typeof` for primitives, `instanceof` for classes and `in` for object shapes and let the compiler eliminate an entire category of runtime errors before your code ever runs.
